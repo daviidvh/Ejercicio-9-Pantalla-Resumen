@@ -11,13 +11,27 @@ class pantallaResumen : AppCompatActivity() {
         val binding = ActivityPantallaResumenBinding.inflate(layoutInflater)
         setContentView(binding.root)
         var imagenClase= intent.getStringExtra("ImagenClase")
+        var imagenRaza= intent.getStringExtra("ImagenRaza")
+
         if(imagenClase=="mago"){
             binding.imagenClase.setImageResource(R.drawable.mago)
-        }
-        if (imagenClase=="ladron"){
+        }else if (imagenClase=="ladron"){
             binding.imagenClase.setImageResource(R.drawable.ladron)
+        }else if (imagenClase=="guerrero"){
+            binding.imagenClase.setImageResource(R.drawable.guerrero)
+        }else if (imagenClase=="mercader"){
+            binding.imagenClase.setImageResource(R.drawable.mercader)
         }
 
+        if (imagenRaza=="elfo"){
+            binding.imagenRaza.setImageResource(R.drawable.elfo)
+        }else if (imagenRaza=="goblin"){
+            binding.imagenRaza.setImageResource(R.drawable.goblin)
+        }else  if (imagenRaza=="enano") {
+            binding.imagenRaza.setImageResource(R.drawable.enano)
+        }else  if (imagenRaza=="humano") {
+            binding.imagenRaza.setImageResource(R.drawable.humano)
+        }
 
         var randomFuerza=(10..15).random()
         var randomDefensa=(1..5).random()

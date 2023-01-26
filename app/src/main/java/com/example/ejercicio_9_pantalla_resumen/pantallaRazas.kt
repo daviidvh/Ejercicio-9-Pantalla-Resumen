@@ -1,10 +1,8 @@
 package com.example.ejercicio_9_pantalla_resumen
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.ejercicio_9_pantalla_resumen.databinding.ActivityMainBinding
 import com.example.ejercicio_9_pantalla_resumen.databinding.ActivityPantallaRazasBinding
 
 class pantallaRazas : AppCompatActivity() {
@@ -12,6 +10,7 @@ class pantallaRazas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityPantallaRazasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var imagenClase= intent.getStringExtra("ImagenClase")
         var imagenRaza=""
 
         binding.botonAceptar.isEnabled=false
@@ -32,13 +31,15 @@ class pantallaRazas : AppCompatActivity() {
             imagenRaza="enano"
         }
         binding.botonHumano.setOnClickListener {
-            binding.imageView.setImageResource(R.drawable.humamo)
+            binding.imageView.setImageResource(R.drawable.humano)
             binding.botonAceptar.isEnabled=true
             imagenRaza="humano"
         }
         binding.botonAceptar.setOnClickListener {
             val intent= Intent(this, pantallaResumen::class.java)
             intent.putExtra("ImagenRaza",imagenRaza)
+            intent.putExtra("ImagenClase",imagenClase)
+
             startActivity(intent)
         }
     }
