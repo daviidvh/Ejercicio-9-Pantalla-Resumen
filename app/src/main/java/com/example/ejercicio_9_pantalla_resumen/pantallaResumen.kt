@@ -10,6 +10,14 @@ class pantallaResumen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityPantallaResumenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var imagenClase= intent.getStringExtra("ImagenClase")
+        if(imagenClase=="mago"){
+            binding.imagenClase.setImageResource(R.drawable.mago)
+        }
+        if (imagenClase=="ladron"){
+            binding.imagenClase.setImageResource(R.drawable.ladron)
+        }
+
 
         var randomFuerza=(10..15).random()
         var randomDefensa=(1..5).random()
